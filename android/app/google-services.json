@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258570911827",
+    "project_id": "gesture-1a2b",
+    "storage_bucket": "gesture-1a2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258570911827:android:2ea4a73bcef4dc2a6a86a6",
+        "android_client_info": {
+          "package_name": "com.example.gesture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258570911827-tftu05c49jka1g674s3280ojrn7kj3or.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0MQEK_q_3o-CcGYvx3LaSguiLr6grP7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258570911827-tftu05c49jka1g674s3280ojrn7kj3or.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
