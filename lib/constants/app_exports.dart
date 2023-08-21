@@ -1,12 +1,9 @@
-export 'app_assets.dart';
-export 'app_constants.dart';
-export '../config/router/app_router.dart';
-export '../config/theme/app_theme.dart';
-export '../config/theme/app_style.dart';
-export '../config/theme/pallete.dart';
-
+export 'constants.dart';
+export '../config/config.dart';
+export '../core/core.dart';
+export '../common/common.dart';
 export '../features/features.dart';
-export '/root.dart';
+export '../root_app.dart';
 
 //! packages
 export 'package:firebase_core/firebase_core.dart';

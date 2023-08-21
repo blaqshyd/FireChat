@@ -1,35 +1,41 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
 import 'package:gesture/constants/app_exports.dart';
-import 'package:gesture/features/auth/view/signup_view.dart';
-import 'package:gesture/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatefulWidget {
-  // final VoidCallback onTap;
-  const LoginView({
+import '../controller/auth_service.dart';
+import 'login_view.dart';
+
+class SignupView extends StatefulWidget {
+  const SignupView({
     Key? key,
-    // required this.onTap,
   }) : super(key: key);
 
+  // final VoidCallback onTap;
+
   @override
-  LoginViewState createState() => LoginViewState();
+  SignupViewState createState() => SignupViewState();
 }
 
-class LoginViewState extends State<LoginView> {
+class SignupViewState extends State<SignupView> {
   final _emailCtrl = TextEditingController();
   final _pwdCtrl = TextEditingController();
+  final _confirmCtrl = TextEditingController();
 
-  void signIn() async {
+  void signUp() async {
+    if (_pwdCtrl.text != _confirmCtrl.text) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Passwords do not match')),
+      );
+      return;
+    }
     final authService = Provider.of<AuthService>(context, listen: false);
 
     try {
-      await authService.signInUser(
+      await authService.createUser(
+        context: context,
         email: _emailCtrl.text,
         password: _pwdCtrl.text,
-        context: context,
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -59,21 +65,32 @@ class LoginViewState extends State<LoginView> {
               CustomTextf(
                 controller: _pwdCtrl,
                 hintText: 'Password',
-                textInputAction: TextInputAction.done,
                 obscureText: true,
+                textInputAction: TextInputAction.next,
+              ),
+              AppConstants.h16,
+              CustomTextf(
+                controller: _confirmCtrl,
+                hintText: 'Confirm Password',
+                obscureText: true,
+                textInputAction: TextInputAction.done,
               ),
               AppConstants.h32,
-              ButtonUtil.filled(text: 'Login', cta: signIn),
+              ButtonUtil.filled(
+                text: 'Sign Up',
+                cta: signUp,
+              ),
               AppConstants.h32,
               RichText(
                 text: TextSpan(
                   children: [
-                    const TextSpan(text: 'New member?'),
+                    const TextSpan(text: 'Already have an account?'),
                     TextSpan(
-                        text: '  Signup',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () =>
-                              AppRouter.pushReplacement(const SignupView()))
+                      text: '  Login',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap =
+                            () => AppRouter.pushReplacement(const LoginView()),
+                    )
                   ],
                 ),
               )

@@ -5,14 +5,26 @@ class AppTheme {
   AppTheme._();
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    // textTheme: AppTextTheme.lightTextTheme,
     colorScheme: const ColorScheme.light(),
     scaffoldBackgroundColor: Pallete.lightColor,
+    // textTheme: AppTextTheme.lightTextTheme,
+    appBarTheme: AppBarTheme(
+      foregroundColor: Pallete.darkColor,
+      centerTitle: true,
+      backgroundColor: Pallete.lightColor,
+      elevation: 0,
+    ),
   );
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    // textTheme: AppTextTheme.darkTextTheme,
     colorScheme: const ColorScheme.dark(),
     scaffoldBackgroundColor: Pallete.darkColor,
+    // textTheme: AppTextTheme.darkTextTheme,
+    appBarTheme: AppBarTheme(
+      foregroundColor: Pallete.lightColor,
+      centerTitle: true,
+      backgroundColor: Pallete.darkColor,
+      elevation: 0,
+    ),
   );
 }

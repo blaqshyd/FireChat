@@ -47,14 +47,14 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+       
         applicationId "com.example.gesture"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
-        versionCode flutterVersionCode.toInteger()
+   
+        minSdkVersion 19
+        targetSdkVersion flutter.targetSdkVersion //? rqd is 33 now
+        versionCode flutterVersionCode.toInteger() //? Change to 1.0.0 or 1.0.1
         versionName flutterVersionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -72,4 +72,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
 }

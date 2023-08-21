@@ -28,7 +28,6 @@ class AppAssets {
 
   static const String following = "following";
   static const String notFollowing = "follow";
+  static const String twitta = "twitta";
 
-//! url
-  static const String url = "http://localhost:80";
 }
