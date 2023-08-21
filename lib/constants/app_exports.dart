@@ -3,7 +3,7 @@ export '../config/config.dart';
 export '../core/core.dart';
 export '../common/common.dart';
 export '../features/features.dart';
-export '../root_app.dart';
+export '../root.dart';
 
 //! packages
 export 'package:firebase_core/firebase_core.dart';

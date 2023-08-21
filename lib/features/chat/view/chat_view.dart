@@ -17,7 +17,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   void signOut() {
     final authService = Provider.of<AuthService>(context, listen: false);
-
     authService.signOutUser();
   }
 
@@ -47,6 +46,7 @@ class _HomeViewState extends State<HomeView> {
 }
 
 Widget _userList() {
+
   return StreamBuilder<QuerySnapshot>(
     stream: FirebaseFirestore.instance.collection('users').snapshots(),
     builder: (context, snapshot) {

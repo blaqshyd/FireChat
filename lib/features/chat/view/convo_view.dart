@@ -115,7 +115,7 @@ class _ConvoViewState extends State<ConvoView> {
     MapString data = doc.data() as MapString;
     String senderId = data['senderId'];
     String message = data['message'];
-    String email = data['senderEmail'];
+    // String email = data['senderEmail'];
     Timestamp timestamp = data['timestamp'];
     //? Align based on which user
     // var alignment = (senderId == _firebaseAuth.currentUser!.uid)

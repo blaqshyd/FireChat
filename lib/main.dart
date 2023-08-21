@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gesture/root_app.dart';
 import 'package:gesture/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
