@@ -8,11 +8,13 @@ class CustomTextf extends StatelessWidget {
     required this.hintText,
     this.textInputAction,
     this.obscureText,
+    this.suffixIcon,
   }) : super(key: key);
   final TextEditingController controller;
   final TextInputAction? textInputAction;
   final bool? obscureText;
   final String hintText;
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class CustomTextf extends StatelessWidget {
       obscureText: obscureText ?? false,
       textInputAction: textInputAction,
       decoration: InputDecoration(
-        border: const OutlineInputBorder(),
+        suffixIcon: suffixIcon,
+        contentPadding: const EdgeInsets.all(16),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
         hintText: hintText,
       ),
     );

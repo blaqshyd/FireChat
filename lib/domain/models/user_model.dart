@@ -1,4 +1,4 @@
-import 'package:gesture/core/core.dart';
+import 'package:firechat/core/core.dart';
 
 class User {
   final String email;

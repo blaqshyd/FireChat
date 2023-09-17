@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gesture/core/core.dart';
-import 'package:gesture/domain/models/message_model.dart';
+import 'package:firechat/core/core.dart';
+import 'package:firechat/domain/models/message_model.dart';
 
 class ChatService extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

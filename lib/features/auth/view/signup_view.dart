@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:gesture/constants/app_exports.dart';
+import 'package:firechat/constants/app_exports.dart';
 import 'package:provider/provider.dart';
 
 import '../controller/auth_service.dart';
@@ -55,37 +55,40 @@ class SignupViewState extends State<SignupView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppConstants.appBar(),
-              AppConstants.h32,
+              32.sbH,
               CustomTextf(
                 controller: _emailCtrl,
                 hintText: 'Email Address',
                 textInputAction: TextInputAction.next,
               ),
-              AppConstants.h16,
+              16.sbH,
               CustomTextf(
                 controller: _pwdCtrl,
                 hintText: 'Password',
                 obscureText: true,
                 textInputAction: TextInputAction.next,
               ),
-              AppConstants.h16,
+              16.sbH,
               CustomTextf(
                 controller: _confirmCtrl,
                 hintText: 'Confirm Password',
                 obscureText: true,
                 textInputAction: TextInputAction.done,
               ),
-              AppConstants.h32,
+              32.sbH,
               ButtonUtil.filled(
                 text: 'Sign Up',
                 cta: signUp,
+                bgColor: Pallete.primaryColor,
               ),
-              AppConstants.h32,
+              32.sbH,
               RichText(
                 text: TextSpan(
+                  style: AppStyle.bFormHint,
                   children: [
                     const TextSpan(text: 'Already have an account?'),
                     TextSpan(
+                      style: AppStyle.sDark400,
                       text: '  Login',
                       recognizer: TapGestureRecognizer()
                         ..onTap =

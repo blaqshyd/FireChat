@@ -4,17 +4,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'package:gesture/constants/app_exports.dart';
-import 'package:gesture/features/chat/controller/chat_service.dart';
+import 'package:firechat/constants/app_exports.dart';
+import 'package:firechat/features/chat/controller/chat_service.dart';
 
 class ConvoView extends StatefulWidget {
   final String email;
   final String receiverId;
+  final String initials;
 
   const ConvoView({
     Key? key,
     required this.email,
     required this.receiverId,
+    required this.initials,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,7 @@ class _ConvoViewState extends State<ConvoView> {
   final _ctrl = TextEditingController();
   final _chatService = ChatService();
   final _firebaseAuth = FirebaseAuth.instance;
+  final _focusNode = FocusScopeNode();
 
   //? Send message
   void send() async {
@@ -35,13 +38,29 @@ class _ConvoViewState extends State<ConvoView> {
       );
       //? clear the controller
       _ctrl.clear();
+      _focusNode.unfocus();
     }
+    _focusNode.unfocus();
   }
 
 //? The appbar rebuilds every time state changes cos it's in a build method
   AppBar appbar() {
+    String? initials;
     return AppConstants.appBar(
-      child: Text(getEmailPrefix(widget.email)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            child: Text(initials ?? 'AB'),
+          ),
+          12.sbW,
+          Text(
+            widget.email.emailPrefix,
+            style: AppStyle.bDark400,
+          ),
+        ],
+      ),
     );
   }
 
@@ -64,6 +83,20 @@ class _ConvoViewState extends State<ConvoView> {
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     child: CustomTextf(
+                      // suffixIcon: IconButton(
+                      //     onPressed: () async {
+                      //       FilePickerResult? result =
+                      //           await FilePicker.platform.pickFiles();
+                      //       if (result != null) {
+                      //         File? pickedFile = await result.asFile;
+                      //         if (pickedFile != null) {
+                      //           // Use the pickedFile as needed
+                      //           print(pickedFile);
+                      //           return;
+                      //         }
+                      //       }
+                      //     },
+                      //     icon: const Icon(Iconsax.camera)),
                       controller: _ctrl,
                       hintText: 'Send a message',
                     ),
@@ -87,7 +120,9 @@ class _ConvoViewState extends State<ConvoView> {
   Widget _messages() {
     return StreamBuilder(
       stream: _chatService.getMessage(
-          widget.receiverId, _firebaseAuth.currentUser!.uid),
+        widget.receiverId,
+        _firebaseAuth.currentUser!.uid,
+      ),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
@@ -112,34 +147,37 @@ class _ConvoViewState extends State<ConvoView> {
 
 //? Individual message
   Widget _message(DocumentSnapshot doc) {
+    // final height = MediaQuery.sizeOf(context).height * .02;
     MapString data = doc.data() as MapString;
     String senderId = data['senderId'];
     String message = data['message'];
-    // String email = data['senderEmail'];
     Timestamp timestamp = data['timestamp'];
-    //? Align based on which user
-    // var alignment = (senderId == _firebaseAuth.currentUser!.uid)
-    //     ? Alignment.centerRight
-    //     : Alignment.centerLeft;
+    // String email = data['senderEmail'];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min, //? takes as little space as allowed
         crossAxisAlignment: senderId == _firebaseAuth.currentUser!.uid
             ? CrossAxisAlignment.end
             : CrossAxisAlignment.start,
-        // mainAxisAlignment: alignment,
+
         children: [
           Container(
-            // constraints: const BoxConstraints(maxWidth: 90),
-            alignment: senderId == _firebaseAuth.currentUser!.uid
-                ? Alignment.center
-                : Alignment.centerLeft,
-            padding: const EdgeInsets.all(16.0),
-            // margin: const EdgeInsets.only(bottom: 12),
+            constraints: const BoxConstraints(maxWidth: 320),
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
-              borderRadius: AppConstants.borderRadius,
+              borderRadius: senderId == _firebaseAuth.currentUser!.uid
+                  ? const BorderRadius.only(
+                      bottomLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                    )
+                  : const BorderRadius.only(
+                      bottomRight: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      topLeft: Radius.circular(15),
+                    ),
               color: senderId == _firebaseAuth.currentUser!.uid
                   ? Pallete.primaryColor
                   : Pallete.neutral,
@@ -149,8 +187,10 @@ class _ConvoViewState extends State<ConvoView> {
               style: AppStyle.bNeutral400.copyWith(color: Pallete.lightColor),
             ),
           ),
-          AppConstants.h04,
-          Text(timestamp.toDate().toString())
+          4.sbH,
+
+          Text(timestamp.toDate().formatToTime),
+          //  Icon(isRead ? Icons.done_all_rounded : Icons.done_rounded)
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gesture/features/auth/view/view.dart';
-import 'package:gesture/features/chat/view/chat_view.dart';
+import 'package:firechat/features/auth/view/view.dart';
+import 'package:firechat/features/chat/view/user_list.dart';
 
 class RootApp extends StatelessWidget {
   const RootApp({Key? key}) : super(key: key);

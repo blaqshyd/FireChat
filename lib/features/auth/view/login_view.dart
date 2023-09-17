@@ -2,9 +2,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import 'package:gesture/constants/app_exports.dart';
-import 'package:gesture/features/auth/view/signup_view.dart';
-import 'package:gesture/features/auth/controller/auth_service.dart';
+import 'package:firechat/constants/app_exports.dart';
+import 'package:firechat/features/auth/view/signup_view.dart';
+import 'package:firechat/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
@@ -49,27 +49,33 @@ class LoginViewState extends State<LoginView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AppConstants.appBar(),
-              AppConstants.h32,
+              32.sbH,
               CustomTextf(
                 controller: _emailCtrl,
                 hintText: 'Email Address',
                 textInputAction: TextInputAction.next,
               ),
-              AppConstants.h16,
+              16.sbH,
               CustomTextf(
                 controller: _pwdCtrl,
                 hintText: 'Password',
                 textInputAction: TextInputAction.done,
                 obscureText: true,
               ),
-              AppConstants.h32,
-              ButtonUtil.filled(text: 'Login', cta: signIn),
-              AppConstants.h32,
+              32.sbH,
+              ButtonUtil.filled(
+                text: 'Login',
+                cta: signIn,
+                bgColor: Pallete.primaryColor,
+              ),
+              32.sbH,
               RichText(
                 text: TextSpan(
+                  style: AppStyle.bFormHint,
                   children: [
                     const TextSpan(text: 'New member?'),
                     TextSpan(
+                        style: AppStyle.sDark400,
                         text: '  Signup',
                         recognizer: TapGestureRecognizer()
                           ..onTap = () =>

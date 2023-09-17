@@ -5,7 +5,7 @@ export '../common/common.dart';
 export '../features/features.dart';
 export '../root.dart';
 
-//! packages
+//? packages
 export 'package:firebase_core/firebase_core.dart';
 export 'package:google_fonts/google_fonts.dart';
 export 'package:iconsax_flutter/iconsax_flutter.dart';

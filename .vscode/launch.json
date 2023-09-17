@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        // {
+        //     "name": "gesture",
+        //     "request": "launch",
+        //     "type": "dart"
+        // },
+        // {
+        //     "name": "gesture (profile mode)",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "profile"
+        // },
+        // {
+        //     "name": "gesture (release mode)",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "flutterMode": "release"
+        // },
+        {
+            "name": "Pixel 6a",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5554"
+        },
+        {
+            "name": "Resizable Fold",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "emulator-5556"
+        },
+        {
+            "name": "Redmi 9c",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "7XMB45IFRWYL5LYL"
+        },
+      
+    ],
+    "compounds": [
+        {
+            "name": "Devices",
+            "configurations": ["Pixel 6a", "Redmi 9c"]
+        },
+        {
+            "name": "Emulators",
+            "configurations": ["Pixel 6a", "Resizable Fold"]
+        }
+    ]
+    
+}

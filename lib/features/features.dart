@@ -1,2 +1,2 @@
-export 'chat/view/chat_view.dart';
+export 'chat/chat.dart';
 export 'auth/auth.dart';

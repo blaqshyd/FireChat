@@ -14,7 +14,7 @@ class ButtonUtil {
       child: ClipRRect(
         borderRadius: borderRadius ?? BorderRadius.circular(4),
         child: Container(
-          padding: const EdgeInsets.all(22),
+          padding: const EdgeInsets.all(18),
           // height: 60,
           width: double.infinity,
           color: bgColor ?? Colors.grey,
@@ -54,7 +54,7 @@ class ButtonUtil {
       child: Container(
         // alignment: Alignment.center,
         // height: 60,
-        padding: const EdgeInsets.all(22),
+        padding: const EdgeInsets.all(18),
         width: double.infinity,
         decoration: BoxDecoration(
           border: Border.all(width: 1.5, color: bgColor ?? Colors.grey[800]!),

@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:gesture/config/theme/pallete.dart';
+import 'package:firechat/config/theme/pallete.dart';
+import 'package:firechat/constants/app_constants.dart';
 
 class AppTheme {
   AppTheme._();
   static ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
     brightness: Brightness.light,
     colorScheme: const ColorScheme.light(),
     scaffoldBackgroundColor: Pallete.lightColor,
     // textTheme: AppTextTheme.lightTextTheme,
+    snackBarTheme: SnackBarThemeData(
+      backgroundColor: Pallete.primaryColor,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: AppConstants.borderRadius),
+    ),
     appBarTheme: AppBarTheme(
       foregroundColor: Pallete.darkColor,
       centerTitle: true,
@@ -16,6 +23,8 @@ class AppTheme {
     ),
   );
   static ThemeData darkTheme = ThemeData(
+    useMaterial3: true,
+
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(),
     scaffoldBackgroundColor: Pallete.darkColor,

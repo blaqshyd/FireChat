@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gesture/features/auth/controller/auth_service.dart';
+import 'package:firechat/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/app_exports.dart';
@@ -24,15 +24,17 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: Text(
-          'Alanoir',
+          'Chats',
           style: AppStyle.h2Dark500.copyWith(
+            fontSize: 24,
             color: Pallete.neutral,
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 8.0),
+            padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: signOut,
               child: const Icon(Iconsax.logout_copy),
@@ -46,7 +48,6 @@ class _HomeViewState extends State<HomeView> {
 }
 
 Widget _userList() {
-
   return StreamBuilder<QuerySnapshot>(
     stream: FirebaseFirestore.instance.collection('users').snapshots(),
     builder: (context, snapshot) {
@@ -81,22 +82,16 @@ Widget _buildListTile(DocumentSnapshot document) {
     String l = email[2].toUpperCase();
 
     return ListTile(
-      onTap: () => AppRouter.push(ConvoView(
-        receiverId: uid,
-        email: email,
-      )),
-      leading: CircleAvatar(
-        radius: 24,
-        child: Text('$f$l'),
+      onTap: () => AppRouter.push(
+        ConvoView(receiverId: uid, email: email, initials: email.initials),
       ),
+      // initials: '$f$l',
+      leading: CircleAvatar(radius: 24, child: Text('$f$l')),
       title: Text(
-        getEmailPrefix(email),
+        email.emailPrefix,
         style: AppStyle.bDark400.copyWith(fontSize: 18),
       ),
-      subtitle: Text(
-        email,
-        style: AppStyle.sDark400,
-      ),
+      // subtitle: Text(email, style: AppStyle.sDark400),
     );
   }
   return const SizedBox.shrink();

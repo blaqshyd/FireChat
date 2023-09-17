@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:gesture/features/auth/controller/auth_service.dart';
+import 'package:firechat/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import 'constants/app_exports.dart';
-import 'package:gesture/firebase_options.dart';
+import 'package:firechat/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
-    MultiProvider(
+    MultiProvider( 
       providers: [
         ChangeNotifierProvider(
           create: (context) => AuthService(),

@@ -1,4 +1,4 @@
-package com.example.gesture
+package com.example.firebase_chat
 
 import io.flutter.embedding.android.FlutterActivity
 

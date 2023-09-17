@@ -1,4 +1,5 @@
 //? FutureEither takes 2 data types that is not dynamic and any other datatype like string with the use of fpdart package
+//? fpdart package makes it possible to use generic data types
 
 import 'package:fpdart/fpdart.dart';
 import '../constants/app_exports.dart';
@@ -11,3 +12,4 @@ typedef FutureVoid = Future<void>;
 typedef MapString = Map<String, dynamic>;
 typedef MapType<T> = Map<String, T>;
 typedef ListOfString = List<String>;
+typedef ListOfMapString = List<Map<String, dynamic>>;
