@@ -30,7 +30,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     namespace "com.example.firechat"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -49,10 +49,9 @@ android {
     defaultConfig {
        
         applicationId "com.example.firechat"
-   
         minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion //? rqd is 33 now
-        versionCode flutterVersionCode.toInteger() //? Change to 1.0.0 or 1.0.1
+        versionCode flutterVersionCode.toInteger() 
         versionName flutterVersionName
         multiDexEnabled true
     }

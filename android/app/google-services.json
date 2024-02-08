@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:258570911827:android:2ea4a73bcef4dc2a6a86a6",
+        "mobilesdk_app_id": "1:258570911827:android:044b0e1a885f18e96a86a6",
         "android_client_info": {
           "package_name": "com.example.firechat"
         }
       },
       "oauth_client": [
         {
-          "client_id": "258570911827-tftu05c49jka1g674s3280ojrn7kj3or.apps.googleusercontent.com",
+          "client_id": "258570911827-6q4jn8qfc8l4dje0hi3laae33l2nq3r9.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +27,51 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "258570911827-tftu05c49jka1g674s3280ojrn7kj3or.apps.googleusercontent.com",
+              "client_id": "258570911827-6q4jn8qfc8l4dje0hi3laae33l2nq3r9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "258570911827-o2lq25c5pcagtifi48sm870iq8b3oc9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gesture"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258570911827:android:2ea4a73bcef4dc2a6a86a6",
+        "android_client_info": {
+          "package_name": "com.example.gesture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258570911827-6q4jn8qfc8l4dje0hi3laae33l2nq3r9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0MQEK_q_3o-CcGYvx3LaSguiLr6grP7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258570911827-6q4jn8qfc8l4dje0hi3laae33l2nq3r9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "258570911827-o2lq25c5pcagtifi48sm870iq8b3oc9l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gesture"
+              }
             }
           ]
         }

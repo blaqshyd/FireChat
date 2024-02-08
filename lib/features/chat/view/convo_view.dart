@@ -79,24 +79,17 @@ class _ConvoViewState extends State<ConvoView> {
             ),
             Row(
               children: [
+                GestureDetector(
+                  onTap: pickFile,
+                  child: const Icon(
+                    Iconsax.add_square_copy,
+                    size: 32,
+                  ),
+                ),
                 Expanded(
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     child: CustomTextf(
-                      // suffixIcon: IconButton(
-                      //     onPressed: () async {
-                      //       FilePickerResult? result =
-                      //           await FilePicker.platform.pickFiles();
-                      //       if (result != null) {
-                      //         File? pickedFile = await result.asFile;
-                      //         if (pickedFile != null) {
-                      //           // Use the pickedFile as needed
-                      //           print(pickedFile);
-                      //           return;
-                      //         }
-                      //       }
-                      //     },
-                      //     icon: const Icon(Iconsax.camera)),
                       controller: _ctrl,
                       hintText: 'Send a message',
                     ),
@@ -104,9 +97,17 @@ class _ConvoViewState extends State<ConvoView> {
                 ),
                 GestureDetector(
                   onTap: send,
-                  child: const Icon(
-                    Iconsax.send_1_copy,
-                    size: 32,
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Pallete.primaryColor,
+                    ),
+                    child: Icon(
+                      Iconsax.send_1_copy,
+                      color: Pallete.lightColor,
+                      size: 32,
+                    ),
                   ),
                 )
               ],

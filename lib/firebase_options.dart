@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB0MQEK_q_3o-CcGYvx3LaSguiLr6grP7w',
-    appId: '1:258570911827:android:2ea4a73bcef4dc2a6a86a6',
+    appId: '1:258570911827:android:044b0e1a885f18e96a86a6',
     messagingSenderId: '258570911827',
     projectId: 'gesture-1a2b',
     storageBucket: 'gesture-1a2b.appspot.com',
@@ -59,12 +59,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAf7qbclz3hwFf4gdM14TJBFVY2O02BPA4',
-    appId: '1:258570911827:ios:0bd9fa088a2ec85a6a86a6',
+    appId: '1:258570911827:ios:debeed2c8cc3dee46a86a6',
     messagingSenderId: '258570911827',
     projectId: 'gesture-1a2b',
     storageBucket: 'gesture-1a2b.appspot.com',
-    iosClientId:
-        '258570911827-o2lq25c5pcagtifi48sm870iq8b3oc9l.apps.googleusercontent.com',
-    iosBundleId: 'com.example.gesture',
+    iosClientId: '258570911827-alilcbb3k5d10k1l1m7158pffh2fv6pj.apps.googleusercontent.com',
+    iosBundleId: 'com.example.firechat',
   );
 }

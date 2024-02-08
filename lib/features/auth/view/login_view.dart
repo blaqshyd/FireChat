@@ -22,6 +22,12 @@ class LoginViewState extends State<LoginView> {
   final _emailCtrl = TextEditingController();
   final _pwdCtrl = TextEditingController();
 
+  void signInGoogle() {
+    final authService = Provider.of<AuthService>(context, listen: false);
+
+    authService.googleSignIn();
+  }
+
   void signIn() async {
     final authService = Provider.of<AuthService>(context, listen: false);
 
@@ -67,6 +73,18 @@ class LoginViewState extends State<LoginView> {
                 text: 'Login',
                 cta: signIn,
                 bgColor: Pallete.primaryColor,
+              ),
+              12.sbH,
+              const Row(children: [
+                Expanded(child: Divider()),
+                Text('or'),
+                Expanded(child: Divider())
+              ]),
+              12.sbH,
+              ButtonUtil.outlined(
+                text: 'Sign in with Google',
+                cta: signInGoogle,
+                // bgColor: Pallete.primaryColor,
               ),
               32.sbH,
               RichText(

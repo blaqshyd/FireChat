@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firechat/features/auth/controller/auth_service.dart';
 import 'package:provider/provider.dart';
 
 import '../../../constants/app_exports.dart';
@@ -88,7 +87,7 @@ Widget _buildListTile(DocumentSnapshot document) {
       // initials: '$f$l',
       leading: CircleAvatar(radius: 24, child: Text('$f$l')),
       title: Text(
-        email.emailPrefix,
+        email,
         style: AppStyle.bDark400.copyWith(fontSize: 18),
       ),
       // subtitle: Text(email, style: AppStyle.sDark400),
